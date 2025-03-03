@@ -21,34 +21,62 @@ IG-Engagement-Automation adalah proyek automation berbasis Selenium dan JUnit un
 
 📂 bot-instagram
  ├── 📂 .idea
+ 
  ├── 📂 .gradle
+ 
  ├── 📂 bot-instagram
+ 
  ├── 📂 build
+ 
  ├── 📂 gradle
+ 
  ├── 📂 src
+ 
  │   ├── 📂 main
+ 
  │   ├── 📂 test
+ 
  │   │   ├── 📂 java
+ 
  │   │   │   ├── 📂 features
+ 
  │   │   │   │   ├── 📜 Instagram.feature
+ 
  │   │   │   ├── 📂 helper
+ 
  │   │   │   │   ├── 📂 ig
+ 
  │   │   │   │   │   ├── 📜 link.txt
+ 
  │   │   │   │   │   ├── 📜 link2.txt
+ 
  │   │   │   │   ├── 📂 utility
+ 
  │   │   │   ├── 📂 pages
+ 
  │   │   │   │   ├── 📜 igLogic
+ 
  │   │   │   ├── 📂 runner
+ 
  │   │   │   │   ├── 📜 botrunner
+ 
  │   │   │   ├── 📂 step
+ 
  │   │   │   │   ├── 📜 Hooks
+ 
  │   │   │   │   ├── 📜 igDef
+ 
  │   │   ├── 📂 resources
+ 
  ├── 📜 .gitignore
+
  
  ├── 📜 build.gradle
+ 
  ├── 📜 gradlew
+ 
  ├── 📜 gradlew.bat
+ 
  ├── 📜 settings.gradle
 
 
