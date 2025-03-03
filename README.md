@@ -12,77 +12,23 @@ IG-Engagement-Automation adalah proyek automation berbasis Selenium dan JUnit un
 
 
 📌 Cara Kerja
+
 👉 Menggunakan akun Instagram yang telah dikonfigurasi.
+
 👉 Target untuk interaksi diambil dari file link.txt dan link2.txt dalam folder proyek.
+
 👉 Selenium mengotomatisasi interaksi sesuai dengan mode yang dipilih.
+
 👉 JUnit digunakan untuk menguji jalannya proses automation.
 
+
 🚀 Library dan bahasa yang Digunakan
+
 👉 Selenium: Automasi browser untuk mengontrol Instagram.
+
 👉 JUnit: Pengujian kode untuk memastikan stabilitas dan keakuratan.
+
 👉 Java: Bahasa pemrograman utama untuk proyek ini.
-
-📂 Struktur Folder
-
-📂 bot-instagram
- ├── 📂 .idea
- 
- ├── 📂 .gradle
- 
- ├── 📂 bot-instagram
- 
- ├── 📂 build
- 
- ├── 📂 gradle
- 
- ├── 📂 src
- 
- │   ├── 📂 main
- 
- │   ├── 📂 test
- 
- │   │   ├── 📂 java
- 
- │   │   │   ├── 📂 features
- 
- │   │   │   │   ├── 📜 Instagram.feature
- 
- │   │   │   ├── 📂 helper
- 
- │   │   │   │   ├── 📂 ig
- 
- │   │   │   │   │   ├── 📜 link.txt
- 
- │   │   │   │   │   ├── 📜 link2.txt
- 
- │   │   │   │   ├── 📂 utility
- 
- │   │   │   ├── 📂 pages
- 
- │   │   │   │   ├── 📜 igLogic
- 
- │   │   │   ├── 📂 runner
- 
- │   │   │   │   ├── 📜 botrunner
- 
- │   │   │   ├── 📂 step
- 
- │   │   │   │   ├── 📜 Hooks
- 
- │   │   │   │   ├── 📜 igDef
- 
- │   │   ├── 📂 resources
- 
- ├── 📜 .gitignore
-
- 
- ├── 📜 build.gradle
- 
- ├── 📜 gradlew
- 
- ├── 📜 gradlew.bat
- 
- ├── 📜 settings.gradle
 
 
 📄 Penjelasan File & Folder Penting
@@ -110,10 +56,15 @@ File ini menghubungkan langkah-langkah yang didefinisikan dalam Instagram.featur
 Clone repository ini:
 
 1️⃣ git clone https://github.com/haniffebri/IG-Engagement-Automation.git
+
 2️⃣ Install dependencies Selenium dan JUnit (jika belum ada di proyek Java-mu).
+
 3️⃣ Jalankan bot melalui IDE atau terminal:
+
 4️⃣ java -jar InstaBot.jar
+
 5️⃣ Pastikan link.txt telah diisi dengan target interaksi.
+
 
 ⚠️ Disclaimer
 
