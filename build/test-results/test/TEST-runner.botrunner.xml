@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="runner.botrunner" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-08-05T14:34:01" hostname="LAPTOP-R8HFSPU3" time="4.964">
+  <properties/>
+  <testcase name="Auto komen get link via file" classname="runner.botrunner" time="4.964"/>
+  <system-out><![CDATA[
+Scenario: Auto komen get link via file         ?[90m# src/test/java/features/flow.feature:3?[0m
+Running test
+  ?[32mGiven ?[0m?[32muser is on login page?[0m                  ?[90m# step.komen.userIsOnLoginPage()?[0m
+  ?[32mWhen ?[0m?[32muser input log in username ?[0m?[32m?[1m"beeyapps"?[0m   ?[90m# step.komen.userInputLogInUsername(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32muser input log in password ?[0m?[32m?[1m"Beeyapps123"?[0m ?[90m# step.komen.userInputLogInPassword(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32muser click sign in button?[0m                ?[90m# step.komen.userClickSignInButton()?[0m
+  ?[32mThen ?[0m?[32muser in on home page?[0m                    ?[90m# step.komen.userInOnHomePage()?[0m
+Test Finish
+]]></system-out>
+  <system-err><![CDATA[SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+Aug 05, 2024 9:34:01 PM org.openqa.selenium.remote.service.DriverService$Builder getLogOutput
+INFO: Driver logs no longer sent to console by default; https://www.selenium.dev/documentation/webdriver/drivers/service/#setting-log-output
+Aug 05, 2024 9:34:02 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 127
+Aug 05, 2024 9:34:02 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$4
+WARNING: Unable to find version of CDP to use for . You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.10.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+</testsuite>
