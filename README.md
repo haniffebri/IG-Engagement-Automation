@@ -1,10 +1,15 @@
 IG-Engagement-Automation
 
 IG-Engagement-Automation adalah proyek automation berbasis Selenium dan JUnit untuk melakukan interaksi otomatis di Instagram. Fitur utama bot ini adalah:
+
 🔹 Like postingan target
+
 🔹 Komen pada postingan target
+
 🔹 Like & komen sekaligus pada postingan target
+
 🔹 Mengirim Direct Message (DM) ke target
+
 
 📌 Cara Kerja
 👉 Menggunakan akun Instagram yang telah dikonfigurasi.
