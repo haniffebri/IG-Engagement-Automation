@@ -1,6 +1,6 @@
 IG-Engagement-Automation
 
-IG-Engagement-Automation adalah proyek automation berbasis Selenium dan JUnit untuk melakukan interaksi otomatis di Instagram. Fitur utama bot ini mencakup:
+IG-Engagement-Automation adalah proyek automation berbasis Selenium dan JUnit untuk melakukan interaksi otomatis di Instagram. Fitur utama bot ini adalah:
 🔹 Like postingan target
 🔹 Komen pada postingan target
 🔹 Like & komen sekaligus pada postingan target
@@ -45,6 +45,7 @@ IG-Engagement-Automation adalah proyek automation berbasis Selenium dan JUnit un
  │   │   │   │   ├── 📜 igDef
  │   │   ├── 📂 resources
  ├── 📜 .gitignore
+ 
  ├── 📜 build.gradle
  ├── 📜 gradlew
  ├── 📜 gradlew.bat
@@ -75,7 +76,7 @@ File ini menghubungkan langkah-langkah yang didefinisikan dalam Instagram.featur
 
 Clone repository ini:
 
-1️⃣ git clone https://github.com/username/InstaBot-Automation.git
+1️⃣ git clone https://github.com/haniffebri/IG-Engagement-Automation.git
 2️⃣ Install dependencies Selenium dan JUnit (jika belum ada di proyek Java-mu).
 3️⃣ Jalankan bot melalui IDE atau terminal:
 4️⃣ java -jar InstaBot.jar
