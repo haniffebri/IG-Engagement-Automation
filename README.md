@@ -1,78 +1,108 @@
-IG-Engagement-Automation
+# IG-Engagement-Automation
 
-IG-Engagement-Automation adalah proyek automation berbasis Selenium dan JUnit untuk melakukan interaksi otomatis di Instagram. Fitur utama bot ini adalah:
+**IG-Engagement-Automation** adalah proyek automasi berbasis **Java**, **Selenium**, **JUnit**, dan **Cucumber** untuk menjalankan interaksi otomatis di Instagram. Proyek ini dirancang untuk membantu pengujian dan simulasi aktivitas interaksi akun, seperti menyukai postingan, memberikan komentar, serta mengirim direct message (DM) secara terstruktur.
 
-🔹 Like postingan target
+## Fitur Utama
 
-🔹 Komen pada postingan target
+Proyek ini mendukung beberapa mode interaksi otomatis, yaitu:
 
-🔹 Like & komen sekaligus pada postingan target
+- Like postingan target
+- Comment pada postingan target
+- Like dan comment sekaligus pada postingan target
+- Mengirim direct message (DM) ke target
 
-🔹 Mengirim Direct Message (DM) ke target
+## Cara Kerja
 
+Alur kerja bot secara umum adalah sebagai berikut:
 
-📌 Cara Kerja
+1. Bot menggunakan akun Instagram yang telah dikonfigurasi sebelumnya.
+2. Target interaksi dibaca dari file `link.txt` dan `link2.txt` yang tersedia di dalam folder proyek.
+3. Selenium akan menjalankan automasi browser sesuai mode interaksi yang dipilih.
+4. JUnit dan Cucumber digunakan untuk menjalankan serta menguji skenario automation.
 
-👉 Menggunakan akun Instagram yang telah dikonfigurasi.
+## Teknologi yang Digunakan
 
-👉 Target untuk interaksi diambil dari file link.txt dan link2.txt dalam folder proyek.
+Proyek ini dibangun menggunakan teknologi berikut:
 
-👉 Selenium mengotomatisasi interaksi sesuai dengan mode yang dipilih.
+- **Java** — bahasa pemrograman utama
+- **Selenium** — untuk automasi browser dan interaksi dengan Instagram
+- **JUnit** — untuk pengujian proses automation
+- **Cucumber** — untuk pengujian berbasis skenario
 
-👉 JUnit digunakan untuk menguji jalannya proses automation.
+## Struktur File Penting
 
+Berikut beberapa file dan folder utama dalam proyek ini:
 
-🚀 Library dan bahasa yang Digunakan
+### `Instagram.feature`
+Berisi skenario pengujian berbasis Cucumber dalam format Gherkin. File ini mendefinisikan alur automation yang akan dijalankan.
 
-👉 Selenium: Automasi browser untuk mengontrol Instagram.
+### `utility`
+Folder ini berisi fungsi-fungsi utilitas pendukung, seperti pengaturan timeout, pembacaan file, dan helper method lain yang dapat digunakan kembali.
 
-👉 JUnit: Pengujian kode untuk memastikan stabilitas dan keakuratan.
+### `igLogic`
+Berisi logika utama automation, seperti navigasi ke target, melakukan like, comment, maupun pengiriman DM.
 
-👉 Java: Bahasa pemrograman utama untuk proyek ini.
+### `botrunner`
+Berfungsi sebagai test runner untuk menjalankan skenario yang telah didefinisikan pada `Instagram.feature` menggunakan Cucumber dan JUnit.
 
+### `Hooks`
+Berisi method yang dijalankan sebelum dan sesudah setiap skenario, misalnya untuk membuka dan menutup browser.
 
-📄 Penjelasan File & Folder Penting
+### `igDef`
+Menghubungkan langkah-langkah pada file `Instagram.feature` dengan implementasi kode Java agar skenario dapat dieksekusi.
 
-🔹 Instagram.feature
-File ini berisi skenario pengujian berbasis Cucumber untuk memastikan alur automation berjalan sesuai rencana. Skenario ini mendefinisikan langkah-langkah uji dalam format Gherkin.
+## Cara Menjalankan
 
-🔹 utility
-Folder ini berisi berbagai fungsi utilitas yang mendukung operasional bot, seperti pengaturan timeout, pembacaan file, atau metode reusable lainnya.
+### 1. Clone repository
+```bash
+git clone https://github.com/haniffebri/IG-Engagement-Automation.git
+```
 
-🔹 igLogic
-File ini menangani logika utama dari interaksi bot dengan Instagram, seperti navigasi ke profil target, melakukan like, komentar, atau mengirim DM.
+### 2. Buka project di IDE
+Gunakan IDE Java seperti **IntelliJ IDEA**, **Eclipse**, atau **NetBeans**.
 
-🔹 botrunner
-File ini berfungsi sebagai test runner untuk menjalankan skenario pengujian yang didefinisikan di Instagram.feature menggunakan Cucumber dan JUnit.
+### 3. Install dependencies
+Pastikan dependency berikut sudah tersedia pada project:
 
-🔹 Hooks
-File ini berisi metode yang dieksekusi sebelum dan sesudah setiap skenario pengujian, seperti membuka dan menutup sesi browser.
+- Selenium
+- JUnit
+- Cucumber
 
-🔹 igDef
-File ini menghubungkan langkah-langkah yang didefinisikan dalam Instagram.feature dengan implementasi kode dalam Java, memastikan skenario pengujian dapat berjalan dengan baik.
+Jika menggunakan Maven atau Gradle, tambahkan dependency yang sesuai pada file konfigurasi project.
 
-🔧 Cara Menjalankan
+### 4. Siapkan file target
+Isi file `link.txt` dan/atau `link2.txt` dengan link target interaksi yang akan digunakan oleh bot.
 
-Clone repository ini:
+### 5. Jalankan bot
+Bot dapat dijalankan melalui IDE atau menggunakan runner yang telah disediakan pada project.  
+Jika project sudah dikemas dalam file `.jar`, jalankan dengan perintah berikut:
 
-1️⃣ git clone https://github.com/haniffebri/IG-Engagement-Automation.git
+```bash
+java -jar InstaBot.jar
+```
 
-2️⃣ Install dependencies Selenium dan JUnit (jika belum ada di proyek Java-mu).
+## Catatan Penggunaan
 
-3️⃣ Jalankan bot melalui IDE atau terminal:
+Sebelum menjalankan bot, pastikan bahwa:
 
-4️⃣ java -jar InstaBot.jar
+- akun Instagram telah dikonfigurasi dengan benar,
+- target link telah disiapkan,
+- koneksi internet stabil,
+- browser dan WebDriver sesuai dengan versi yang digunakan.
 
-5️⃣ Pastikan link.txt telah diisi dengan target interaksi.
+## Disclaimer
 
+Proyek ini dibuat untuk tujuan pembelajaran, eksperimen, dan pengujian automation.
 
-⚠️ Disclaimer
+Harap gunakan dengan bijak. Instagram memiliki sistem deteksi terhadap aktivitas otomatis, sehingga penggunaan berlebihan dapat menyebabkan pembatasan akun, checkpoint, atau pemblokiran sementara. Pengguna bertanggung jawab penuh atas penggunaan proyek ini.
 
-Gunakan bot ini dengan bijak dan jangan untuk spam.
-Instagram memiliki algoritma anti-bot yang dapat mendeteksi aktivitas otomatis.
-Penggunaan berlebihan dapat menyebabkan akun dibatasi atau diblokir.
+## Kontak
 
-📞 Kontak
-Jika ada pertanyaan atau saran, silakan hubungi saya di haniffebri31@gmail.com atau buat issue di repository ini.
-Happy Automating! 🚀
+Apabila terdapat pertanyaan, masukan, atau saran, silakan hubungi:
 
+- **Email:** [haniffebri31@gmail.com](mailto:haniffebri31@gmail.com)
+- **GitHub Issues:** [Buat issue di repository ini](https://github.com/haniffebri/IG-Engagement-Automation/issues)
+
+---
+
+Happy Automating.
