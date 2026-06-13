@@ -1,25 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="runner.botrunner" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-08-05T14:34:01" hostname="LAPTOP-R8HFSPU3" time="4.964">
+<testsuite name="runner.botrunner" tests="1" skipped="0" failures="1" errors="0" timestamp="2025-05-25T15:42:22" hostname="LAPTOP-R8HFSPU3" time="5.632">
   <properties/>
-  <testcase name="Auto komen get link via file" classname="runner.botrunner" time="4.964"/>
+  <testcase name="Bot automation Instagram mode selection" classname="runner.botrunner" time="5.632">
+    <failure message="java.util.NoSuchElementException" type="java.util.NoSuchElementException">java.util.NoSuchElementException
+	at java.base/java.util.Scanner.throwFor(Scanner.java:962)
+	at java.base/java.util.Scanner.next(Scanner.java:1619)
+	at java.base/java.util.Scanner.nextInt(Scanner.java:2284)
+	at java.base/java.util.Scanner.nextInt(Scanner.java:2238)
+	at step.igDef.userSelectsModeViaConsole(igDef.java:30)
+	at ✽.user selects mode via console(file:///D:/Pribadi/ASOKA/bot-instagram/bot-instagram/src/test/java/features/Instagram.feature:5)
+</failure>
+  </testcase>
   <system-out><![CDATA[
-Scenario: Auto komen get link via file         ?[90m# src/test/java/features/flow.feature:3?[0m
-Running test
-  ?[32mGiven ?[0m?[32muser is on login page?[0m                  ?[90m# step.komen.userIsOnLoginPage()?[0m
-  ?[32mWhen ?[0m?[32muser input log in username ?[0m?[32m?[1m"beeyapps"?[0m   ?[90m# step.komen.userInputLogInUsername(java.lang.String)?[0m
-  ?[32mAnd ?[0m?[32muser input log in password ?[0m?[32m?[1m"Beeyapps123"?[0m ?[90m# step.komen.userInputLogInPassword(java.lang.String)?[0m
-  ?[32mAnd ?[0m?[32muser click sign in button?[0m                ?[90m# step.komen.userClickSignInButton()?[0m
-  ?[32mThen ?[0m?[32muser in on home page?[0m                    ?[90m# step.komen.userInOnHomePage()?[0m
-Test Finish
+Scenario: Bot automation Instagram mode selection ?[90m# src/test/java/features/Instagram.feature:3?[0m
+Bot Running
+Bot is starting...
+  ?[32mGiven ?[0m?[32muser start the bot?[0m                        ?[90m# step.igDef.userStartBot()?[0m
+Pilih Mode Automation:
+1. Auto Like
+2. Auto Comment
+3. Auto Like & Comment
+4. Auto DM
+  ?[31mWhen ?[0m?[31muser selects mode via console?[0m              ?[90m# step.igDef.userSelectsModeViaConsole()?[0m
+      ?[31mjava.util.NoSuchElementException
+	at java.base/java.util.Scanner.throwFor(Scanner.java:962)
+	at java.base/java.util.Scanner.next(Scanner.java:1619)
+	at java.base/java.util.Scanner.nextInt(Scanner.java:2284)
+	at java.base/java.util.Scanner.nextInt(Scanner.java:2238)
+	at step.igDef.userSelectsModeViaConsole(igDef.java:30)
+	at âœ½.user selects mode via console(file:///D:/Pribadi/ASOKA/bot-instagram/bot-instagram/src/test/java/features/Instagram.feature:5)
+?[0m
+  ?[36mAnd ?[0m?[36muser input log in username ?[0m?[36m?[1m"yourUsername"?[0m   ?[90m# step.igDef.userInputLogInUsername(java.lang.String)?[0m
+  ?[36mAnd ?[0m?[36muser input log in password ?[0m?[36m?[1m"yourPassword"?[0m   ?[90m# step.igDef.userInputLogInPassword(java.lang.String)?[0m
+  ?[36mAnd ?[0m?[36muser click sign in button?[0m                   ?[90m# step.igDef.userClickSignInButton()?[0m
+  ?[36mAnd ?[0m?[36muser click not now button?[0m                   ?[90m# step.igDef.userClickNotNowButton()?[0m
+  ?[36mAnd ?[0m?[36muser click not now button notification?[0m      ?[90m# step.igDef.userClickNotNowButtonNotification()?[0m
+  ?[36mThen ?[0m?[36mverify user is on home page?[0m                ?[90m# step.igDef.userInOnHomePage()?[0m
+  ?[36mAnd ?[0m?[36mexecute task based on selected mode?[0m         ?[90m# step.igDef.executeTaskBasedOnMode()?[0m
+  ?[36mThen ?[0m?[36mfinish bot task?[0m                            ?[90m# step.igDef.finishBotTask()?[0m
+Finish
 ]]></system-out>
   <system-err><![CDATA[SLF4J: No SLF4J providers were found.
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
-Aug 05, 2024 9:34:01 PM org.openqa.selenium.remote.service.DriverService$Builder getLogOutput
+May 25, 2025 11:42:22 AM org.openqa.selenium.remote.service.DriverService$Builder getLogOutput
 INFO: Driver logs no longer sent to console by default; https://www.selenium.dev/documentation/webdriver/drivers/service/#setting-log-output
-Aug 05, 2024 9:34:02 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 127
-Aug 05, 2024 9:34:02 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$4
+May 25, 2025 11:42:25 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 136
+May 25, 2025 11:42:25 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$4
 WARNING: Unable to find version of CDP to use for . You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.10.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
 </testsuite>

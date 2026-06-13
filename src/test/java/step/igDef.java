@@ -1,116 +1,113 @@
 package step;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 import pages.igLogic;
 
-import java.io.IOException;
-
 public class igDef {
+
+    igLogic allpage;
+    String hashtag;
+    int actionMode;
 
     public igDef() {
         this.allpage = new igLogic();
     }
 
-    //HomePage homepage;
-    igLogic allpage;
+    // ==================== NEW FLOW METHODS ====================
 
+    @Given("user start the bot")
+    public void userStartBot() {
+        System.out.println("\n========================================");
+        System.out.println("   INSTAGRAM AUTOMATION BOT STARTED");
+        System.out.println("========================================\n");
 
-    @Given("user is on login page")
-    public void userIsOnLoginPage() {
+        // Get hashtag from system property (set by RunBot)
+        this.hashtag = System.getProperty("hashtag", "purwokerto");
+        System.out.println("Target Hashtag: #" + this.hashtag);
+    }
+
+    @And("user login to Instagram")
+    public void userLoginToInstagram() throws InterruptedException {
+        System.out.println("\n--- STEP 1: LOGIN TO INSTAGRAM ---");
+
+        // Open login page
         allpage.loginpage();
-    }
+        Thread.sleep(2000);
 
-    @When("user input log in username {string}")
-    public void userInputLogInUsername(String username) throws InterruptedException {
+        // Input credentials
+        allpage.inputusername("usernamelu");
         Thread.sleep(1000);
-        allpage.inputusername(username);
-    }
 
-    @And("user input log in password {string}")
-    public void userInputLogInPassword(String password) throws InterruptedException {
+        allpage.inputpassword("pwlu");
         Thread.sleep(1000);
-        allpage.inputpassword(password);
-    }
 
-    @And("user click sign in button")
-    public void userClickSignInButton() throws InterruptedException {
-        Thread.sleep(1000);
+        // Click login
         allpage.clickLoginButton();
-    }
-
-    @And("user click not now button")
-    public void userClickNotNowButton() throws InterruptedException {
-        Thread.sleep(2000);
-        allpage.clicknotnow();
-    }
-
-    @And("user click not now button notification")
-    public void userClickNotNowButtonNotification() throws InterruptedException {
-        Thread.sleep(2000);
-        allpage.clicknotnownotif();
-    }
-
-    @Then("verify user is on home page")
-    public void userInOnHomePage() throws InterruptedException {
         Thread.sleep(3000);
-        allpage.verifhome();
+
+        // Handle popups
+        allpage.clicknotnow();
         Thread.sleep(2000);
-    }
 
-    @When("user go to target link")
-    public void userGoToTargetLink() {
-        allpage.gototarget();
-    }
-
-    @And("user click button komen")
-    public void userClickKolomKomen() throws InterruptedException {
-        Thread.sleep(1000);
-        allpage.clickbuttonkomen();
-    }
-
-    @And("type emoji")
-    public void typeEmoji() throws InterruptedException {
-        allpage.emoji();
-    }
-
-    @Then("type komen {string}")
-    public void postKomen(String komentar) throws InterruptedException {
+        allpage.clicknotnownotif();
         Thread.sleep(2000);
-        allpage.inputkomen(komentar);
+
+        // Verify login success
+        allpage.verifyHomePage();
+        System.out.println("✓ Login successful!\n");
     }
 
-    @And("user click post button")
-    public void userClickPostButton() throws InterruptedException {
-        Thread.sleep(2000);
-        allpage.clickPostButton();
-        Thread.sleep(8000);
+    @When("user scrape targets by hashtag with min {int} likes and {int} comments")
+    public void userScrapeTargetsByHashtag(int minLikes, int minComments) throws Exception {
+        System.out.println("\n--- STEP 2: SCRAPING TARGETS ---");
+        System.out.println("Hashtag: #" + this.hashtag);
+        System.out.println("Min Likes: " + minLikes);
+        System.out.println("Min Comments: " + minComments + "\n");
+
+        String outputPath = System.getProperty("user.dir") + "\\src\\test\\java\\helper\\target\\link.txt";
+
+        allpage.scrapeTargetsByHashtag(this.hashtag, minLikes, minComments, outputPath);
+
+        System.out.println("✓ Scraping completed!\n");
     }
 
-    @When("get link from file")
-    public void getLinkFromFile() throws IOException, InterruptedException {
-        allpage.getlink();
+    @Then("user selects action mode")
+    public void userSelectsActionMode() {
+        System.out.println("\n--- STEP 3: SELECT ACTION MODE ---");
+
+        // Get action mode from system property (set by RunBot)
+        String modeInput = System.getProperty("actionMode", "1");
+        this.actionMode = Integer.parseInt(modeInput);
+
+        String actionName = (actionMode == 1) ? "Auto Like + Comment" : "Auto Follow + DM";
+        System.out.println("Selected Action: " + actionName + "\n");
     }
 
-    @When("get link from second file")
-    public void getLinkFromSecondFile() throws IOException, InterruptedException {
-        allpage.getsecondlink();
+    @And("execute selected action")
+    public void executeSelectedAction() throws Exception {
+        System.out.println("\n--- STEP 4: EXECUTING ACTION ---");
+
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\java\\helper\\target\\link.txt";
+
+        switch (actionMode) {
+            case 1 -> {
+                System.out.println("Running: Auto Like + Comment\n");
+                allpage.likeAndCommentFromFile(filePath);
+            }
+            case 2 -> {
+                System.out.println("Running: Auto Follow + DM\n");
+                allpage.followAndDMFromFile(filePath);
+            }
+            default -> {
+                System.out.println("Invalid action mode!");
+            }
+        }
     }
 
-    @When("get link from like file")
-    public void getLinkFromLikeFile() throws IOException, InterruptedException {
-        allpage.getlikelink();
-    }
-
-    @When("get link from komen file")
-    public void getLinkFromKomenFile() throws IOException, InterruptedException {
-        allpage.getkomenlink();
-    }
-
-    @When("get link from dm file")
-    public void getLinkFromDmFile() throws IOException, InterruptedException {
-        allpage.getdmlink();
+    @Then("finish bot task")
+    public void finishBotTask() {
+        System.out.println("\n========================================");
+        System.out.println("   BOT TASK COMPLETED SUCCESSFULLY");
+        System.out.println("========================================\n");
     }
 }
